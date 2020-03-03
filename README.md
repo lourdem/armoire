@@ -12,3 +12,5 @@ An application that allows you to upload your entire wadrobe, plan outfits, and 
 ### Planning
 1. Sprint 1: Plan and design one user experience
 2. Sprint 2: Implement social features
+
+https://dbdiagram.io/d/5e5ecd2f4495b02c3b87bf09
