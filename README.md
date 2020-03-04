@@ -1,4 +1,4 @@
-# Armario
+# Armoire
 An application that allows you to upload your entire wadrobe, plan outfits, and share clothes with friends.
 
 ## Features
