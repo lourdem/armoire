@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title> Register for Armoire </title>
+
+{% endblock %}
+
+{% block body %}
+   <h1> Register </h1>
+
+   <form action="/register" method="POST">
+
+    <p>
+    <label> Email:
+        <input type="email" name="register_email">
+    </label>
+    </p>
+
+    <p>
+    <label> Username:
+        <input type="username" name="register_username">
+    </label>
+    </p>
+
+    <p>
+    <label> Password:
+      <input type="password" name="register_password">
+    </label>
+    </p>
+
+    <input type="submit" value="Register">
+
+</form>
+
+{% endblock %}

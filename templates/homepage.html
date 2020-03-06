@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title> Armoire </title>
+
+{% endblock %}
+
+{% block body %}
+   <h1> Welcome to Armoire! </h1>
+   <h2> The Social Wardrobe </h2>
+
+
+
+
+   <h3> Already have an account? Login to continue! </h3>
+
+   <form action = "/login" method = "POST">
+    <p>
+        <label> Username
+            <input type = "text" id = "username_for_login" name = "username_for_login">
+        </label>
+    </p>
+    <p>
+        <label> Password
+            <input type = "text" id = "password_for_login" name = "password_for_login">
+        </label>
+    </p>
+    <p>
+        <input type = "submit" value = "Login">
+    </p>
+    </form>
+
+
+    <h3> Or make an account and join the fun! </h3>
+    <a href="http://localhost:5000/register">Register</a>
+
+
+
+
+
+    <!-- link to redirect to /register
+    <form action = "/register" method = "POST">
+    <p>
+        <input type = "submit" value = "Register">
+    </p>
+    </form> -->
+
+
+{% endblock %}
