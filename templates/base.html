@@ -10,10 +10,19 @@
 
 <body>
 
+ <!--    To process flash messages -->
+
+<!-- HOW DOES THIS WORK -->
+
+    <div id="extending">
+        {% for flash in get_flashed_messages() %}
+            <div class="alert alert-danger" style="width:90%; margin:0 auto;">{{ flash }}</div>
+         {% endfor %}
   <!-- This is where the main content goes. -->
-  {% block body %}
-      BODY OF PAGE GOES HERE VIA INHERITANCE
-  {% endblock %}
+        {% block body %}
+   
+        {% endblock %}
+    </div>
 
 </body>
 </html>

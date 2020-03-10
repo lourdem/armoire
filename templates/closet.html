@@ -2,11 +2,21 @@
 
 {% block head %}
 
-<title> Armoire </title>
+<title>My Closet</title>
 
 {% endblock %}
 
 {% block body %}
-   <h1> WELCOME </h1>
+
+{{ user.username }}'s Closet
+<h3> Add an item:</h3>
+    <form action="/closet/<int:user_id>">
+        <label for="img">Select image:</label>
+        <input type="file" id="img" name="img" accept="image/*">
+        <input type="submit">
+    </form>
+
+
+<h3> Make an outfit:</h3>
 
 {% endblock %}

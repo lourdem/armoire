@@ -4,6 +4,9 @@ from jinja2 import StrictUndefined
 from flask import Flask, render_template, request, flash, redirect, session
 from flask_debugtoolbar import DebugToolbarExtension
 from model import connect_to_db, db, User, Clothing, Friend, Event, clothesInOutfit
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 
 app = Flask(__name__)
@@ -24,24 +27,6 @@ def index():
 
 
 
-@app.route('/login')
-def login():
-    return render_template('userhome.html')   
-
-@app.route('/login', methods = ['POST'])
-def login_user():
-    username = request.form.get("username_for_login")
-    password = request.form.get("password_for_login")
-
-
-    user = User(username = username, password = password)
-
-    db.session.add(user)
-    db.session.commit()
-
-    return render_template('userhome.html')
-
-
 
 @app.route('/register')
 def register():
@@ -53,42 +38,80 @@ def register_user():
     username = request.form["register_username"]
     password = request.form["register_password"]
 
-    user = User(username = username, password = password, email = email)
+    new_user = User(username = username, password = password, email = email)
 
-    db.session.add(user)
+    db.session.add(new_user)
     db.session.commit()
 
-    return render_template('userhome.html')
-
-
-
-@app.route('/userhome')
-def user_info():
-    # username = request.form["username_for_login"]
-    return render_template('userhome.html', username_for_login=username)
+    return redirect(f"/users/{new_user.user_id}")
 
 
 
 
+# @app.route('/login')
+# def login():
+#     return redirect(f"/users/{user.user_id}") 
 
-@app.route('/closet')
-def show_closet():
-    return render_template('closet.html')
+@app.route('/login', methods = ['POST'])
+def login_user():
+    username = request.form["username_for_login"]
+    password = request.form["password_for_login"]
 
-@app.route('/friends')
-def show_friends():
+# query is like select, here you are looking for the username by using filter_by(...)
+# the first return only the first result of the query, or none if it's not found
+    
+    user = User.query.filter_by(username=username).first()
+
+    if not user:
+        flash("Account not found, please try again.")
+        return render_template('homepage.html')
+    if user.password != password:
+        flash("Incorrect password. Please try again.")
+        return render_template('homepage.html')
+
+    session["user_id"] = user.user_id
+
+    return redirect(f"/users/{user.user_id}")
+
+
+
+
+@app.route("/users")
+def user_list():
+    users = User.query.all()
+    return render_template("user_list.html", users = users)
+
+
+
+@app.route("/users/<int:user_id>")
+def user_detail(user_id):
+    # username = User.username
+    user = User.query.filter_by(user_id=user_id).first()
+    return render_template('user.html', user =user)
+
+
+
+@app.route("/closet/<int:user_id>")
+def show_closet(user_id):
+    user = User.query.filter_by(user_id=user_id).first()
+    return render_template('closet.html', user=user)
+
+
+
+@app.route('/friends/<int:user_id>')
+def show_friends(user_id):
     return render_template('friends.html')
 
-@app.route('/requests')
-def show_requests():
+@app.route('/requests/<int:user_id>')
+def show_requests(user_id):
     return render_template('requests.html')
 
-@app.route('/recommendations')
-def show_recommendations():
+@app.route('/recommendations/<int:user_id>')
+def show_recommendations(user_id):
     return render_template('recommendations.html')
 
-@app.route('/events')
-def sholw_events():
+@app.route('/events/<int:user_id>')
+def sholw_events(user_id):
     return render_template('events.html')
 
 

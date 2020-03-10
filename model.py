@@ -1,5 +1,14 @@
 from flask_sqlalchemy import SQLAlchemy
-# from sqlalchemy import Table, Column, Integer, ForeignKey
+from sqlalchemy_imageattach.entity import Image, image_attachment
+from sqlalchemy import Column, ForeignKey, Integer, Unicode
+from sqlalchemy.orm import relationship
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy_imageattach.entity import Image, image_attachment
+
+
+#added in order to be able to implement login
+from werkzeug.security import generate_password_hash, check_password_hash
+# from SQLAlchemy import Table, Column, Integer, ForeignKey
 # from sqlalchemy.orm import relationship
 
 # This is the connection to the PostgreSQL database; we're getting this through
@@ -7,6 +16,18 @@ from flask_sqlalchemy import SQLAlchemy
 # object, where we do most of our interactions (like committing, etc.)
 
 db = SQLAlchemy()
+
+
+
+#added to implement login
+
+# def create_password(self, password):
+#     self.password = generate_password_hash(password)
+
+# def login(self, password):
+#     check_password_hash(password, self.password)
+
+
 
 
 ##############################################################################
@@ -21,6 +42,7 @@ class User(db.Model):
     email = db.Column(db.String(64), nullable=True)
     username = db.Column(db.String(64), nullable = False)
     password = db.Column(db.String(64), nullable=False)
+    # picture = image_attachment('UserPicture')
     # age = db.Column(db.Integer, nullable=True)
     # zipcode = db.Column(db.String(15), nullable=True)
 
@@ -37,9 +59,25 @@ class Clothing(db.Model):
     type_code = db.Column(db.String(10), nullable=True)
     season_code = db.Column(db.String(10), nullable = True)
     color = db.Column(db.String(20), nullable = True)
+    c_user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), index=True)
+    # # picture = image_attachment('UserPicture')
+    # picture = image_attachment('UserPicture')
 
     def __repr__(self):
         return f"<Clothing clothing_id={self.clothing_id} type_code ={self.type_code} season_code={self.season_code} color = {self.color}>"
+
+
+# class UserPicture(db.Model, Image):
+#     """User picture model."""
+
+#     __tablename__ = "user_picture"
+
+#     picture_id = Column(Integer, ForeignKey('clothing.clothing_id'), primary_key=True)
+#     user = relationship('clothing')
+
+#     clothingPictures = db.relationship("Clothing",
+#                            backref=db.backref("clothingPictures", order_by=picture_id))
+
 
 
 
