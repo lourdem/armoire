@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+
+{% block head %}
+
+<title> Armoire </title>
+
+{% endblock %}
+
+{% block body %}
+
+<div class="well spaced" style="width:97%">
+  <h2>Welcome {{ user.username }}!</h2>
+
+<p>
+  Go to closet:
+  <a href="http://localhost:5000/closet/{{ user.user_id }}">Closet</a>
+</p>
+
+<p>
+  View friends list:
+  <a href="http://localhost:5000/friends/{{ user.user_id }}">Friends</a>
+</p>
+
+<p>
+  View events:
+  <a href="http://localhost:5000/events/{{ user.user_id }}">Events</a>
+</p>
+
+<p>
+  View requests:
+  <a href="http://localhost:5000/requests/{{ user.user_id }}">Requests</a>
+</p>
+
+<p>
+  View recommendations:
+  <a href="http://localhost:5000/recommendations/{{ user.user_id }}">Recommendations</a>
+</p>
+
+<p>    
+  <a href="http://localhost:5000/register">Logout</a>
+</p>
+
+{% endblock %}
