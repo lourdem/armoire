@@ -3,7 +3,9 @@ from sqlalchemy_imageattach.entity import Image, image_attachment
 from sqlalchemy import Column, ForeignKey, Integer, Unicode
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy_imageattach.entity import Image, image_attachment
+# from sqlalchemy_imageattach.entity import Image, image_attachment
+# import psycopg2
+# from config import Config
 
 
 #added in order to be able to implement login
@@ -59,8 +61,9 @@ class Clothing(db.Model):
     type_code = db.Column(db.String(10), nullable=True)
     season_code = db.Column(db.String(10), nullable = True)
     color = db.Column(db.String(20), nullable = True)
-    c_user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), index=True)
-    # # picture = image_attachment('UserPicture')
+    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable = False)
+    photo = db.Column(db.String(), nullable = True)
+    # picture = image_attachment('UserPicture')
     # picture = image_attachment('UserPicture')
 
     def __repr__(self):
