@@ -58,16 +58,16 @@ class Clothing(db.Model):
     __tablename__ = "clothing"
 
     clothing_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    type_code = db.Column(db.String(10), nullable=True)
-    season_code = db.Column(db.String(10), nullable = True)
-    color = db.Column(db.String(20), nullable = True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable = False)
+    category = db.Column(db.String(20), nullable=True)
+    season = db.Column(db.String(20), nullable = True)
+    color = db.Column(db.String(20), nullable = True)
+    size = db.Column(db.String(20), nullable = True)
+    description = db.Column(db.String(), nullable = True)
     photo = db.Column(db.String(), nullable = True)
-    # picture = image_attachment('UserPicture')
-    # picture = image_attachment('UserPicture')
 
     def __repr__(self):
-        return f"<Clothing clothing_id={self.clothing_id} type_code ={self.type_code} season_code={self.season_code} color = {self.color}>"
+        return f"<Clothing clothing_id={self.clothing_id} category ={self.category} season={self.season} color = {self.color}>"
 
 
 # class UserPicture(db.Model, Image):

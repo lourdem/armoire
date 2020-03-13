@@ -8,48 +8,47 @@
 
 {% block body %}
 
-
-{% for clothes in user_clothing %}
-     <img src="{{ clothes.photo }}" style = "width:200px;height:300px;">
-{% endfor %}
-
-
 <p>
 {{ user.username }}'s Closet
 </p>
-<h3> Add an item:</h3>
-    <form action="/submit_new_item" method = "POST" enctype=multipart/form-data>
-        <label for="imageUpload">Select image:</label>
-        <input type="file" id="new_item" name="new_item" accept="image/*">
-
 <p>
-        <label for="itemCategory">Choose your item's category:</label>
-
-            <select id="itemCategory">
+    <form action="/show_this_category" method = "POST">
+        <label for="category_to_view">Choose the category you want to see:</label>
+            <select id="category_to_view" name ="category_to_view">
                 <option value="skirts">Skirts</option>
                 <option value="jeans">Jeans</option>
                 <option value="dresses">Dresses</option>
-                <option value="businessCasual">Business Casual</option>
                 <option value="outerwear">Outerwear</option>
                 <option value="shorts">Shorts</option>
                 <option value="tops">Tops</option>
                 <option value="shoes">Shoes</option>
                 <option value="accesories">Accesories</option>
             </select>
-<p>
-        <!-- <label for="itemDescription">Describe your item:</label>
-        <input type="text" id="itemDescription" name="fname"> -->
-        Describe your item:
-        <br />
-        <textarea rows = "5" cols = "50" name = "itemDescription"></textarea>
-
-
-<p>
         <input type="submit">
     </form>
-
-
-<h3> Make an outfit:</h3>
+</p>
+<!-- <p>
+{% for clothes in user_clothing %}
+     <img src="{{ clothes.photo }}" style = "width:200px;height:300px;">
+     <p>
+     Category: {{clothes.category}}
+     <p>
+     Season: {{clothes.season}}
+     <p>
+     Color: {{clothes.color}}
+     <p>
+     Size: {{clothes.size}}
+     <p>
+     Description: {{clothes.description}}
+    </p>
+{% endfor %}
+</p> -->
+<p>
+    <a href="http://localhost:5000/item_submission">Submit a new item</a>
+</p>
+<p>
+    <a href="/make_an_outfit">Make an outfit</a>
+</p>
 
 {% endblock %}
 
