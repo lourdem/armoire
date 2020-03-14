@@ -15,8 +15,6 @@ from cloudinary.uploader import upload
 UPLOAD_FOLDER = '/static/media/uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
-
-
 app = Flask(__name__)
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -29,22 +27,26 @@ app.secret_key = "ABC"
 # error.
 app.jinja_env.undefined = StrictUndefined
 
-
-
 cloudinary.config( 
   cloud_name = "lourdem", 
   api_key = os.environ.get("CLOUDINARY_API_KEY"), 
   api_secret = os.environ.get("CLOUDINARY_API_SECRET") 
 )
 
+################################################################################
+##Route for homepage##
 
 @app.route('/')
 def index():
     """Homepage."""
     return render_template('homepage.html')
+################################################################################
+################################################################################
 
 
 
+################################################################################
+##Allows user registration##
 
 @app.route('/register', methods = ['GET'])
 def register():
@@ -64,9 +66,13 @@ def register_user():
     session["user_id"] = new_user.user_id
 
     return redirect(f"/users/{new_user.user_id}")
+################################################################################
+################################################################################
 
 
 
+################################################################################
+##Allows user login##
 
 @app.route('/login', methods = ['POST'])
 def login_user():
@@ -88,45 +94,49 @@ def login_user():
     session["user_id"] = user.user_id
 
     return redirect(f"/users/{user.user_id}")
+################################################################################
+################################################################################
 
 
 
+################################################################################
+##Shows all users and user's homepage##
 
 @app.route("/users")
 def user_list():
     users = User.query.all()
     return render_template("user_list.html", users = users)
 
-
-
 @app.route("/users/<int:user_id>")
 def user_detail(user_id):
     # username = User.username
     user = User.query.filter_by(user_id=user_id).first()
     return render_template('user.html', user =user)
+################################################################################
+################################################################################
 
 
 
+################################################################################
+##Shows user's closet##
 @app.route("/closet/<int:user_id>", methods = ["GET", "POST"])
 def show_closet(user_id):
     user = User.query.filter_by(user_id=user_id).first()
     user_clothing = Clothing.query.filter_by(user_id = user_id).all()
     return render_template('closet.html', user=user, user_clothing = user_clothing)
-
-
+################################################################################
+################################################################################
 
 
 
 ################################################################################
 ##Handles submisison of new clothing items##
 
-
 @app.route("/item_submission")
 def show_submission_form():
     user_id = session["user_id"]
     user = User.query.filter_by(user_id=user_id).first()
     return render_template("item_submission.html",user =user)
-
 
 @app.route("/submit_new_item", methods = ["POST"])
 def add_item():
@@ -156,11 +166,8 @@ def add_item():
 
     return redirect(f"/item_submission")
     # return redirect(f"/closet/{user.user_id}")
-
 ################################################################################
 ################################################################################
-
-
 
 
 
@@ -191,10 +198,8 @@ def show_category():
         return redirect(f"/show_accessories")
     # else:
     #     return render_template('jeans.html', user=user, user_clothing = user_clothing)
-
 ################################################################################
-
-
+################################################################################
 
 
 
@@ -256,12 +261,13 @@ def show_accessories():
     user = User.query.filter_by(user_id=user_id).first()
     user_clothing = Clothing.query.filter_by(user_id = user_id).all()
     return render_template('accessories.html', user=user, user_clothing = user_clothing)
-
 ################################################################################
 ################################################################################
 
 
 
+################################################################################
+##Route to display page where you can design an outfit##
 
 @app.route("/make_an_outfit") #, methods = ["POST"])
 def make_outfit():
@@ -269,6 +275,105 @@ def make_outfit():
     user = User.query.filter_by(user_id=user_id).first()
     user_clothing = Clothing.query.filter_by(user_id = user_id).all()
     return render_template("make_an_outfit.html", user = user)
+################################################################################
+################################################################################
+
+
+
+################################################################################
+##Route for dropdown menu when you seelct a category to make an outfit##
+
+@app.route("/make_outfit_category", methods = ["POST"])
+def show_category_for_outfits():
+    user_id = session["user_id"]
+    user = User.query.filter_by(user_id=user_id).first()
+    user_clothing = Clothing.query.filter_by(user_id = user_id).all()
+    category = request.form["make_outfit_category"]
+    if category == "skirts":
+        return redirect(f"/make_outfit_skirts")
+    elif category == "jeans":
+        return redirect(f"/make_outfit_jeans")
+    elif category == "dresses":
+        return redirect(f"/make_outfit_dresses")
+    elif category == "outerwear":
+        return redirect(f"/make_outfit_outerwear")
+    elif category == "shorts":
+        return redirect(f"/make_outfit_shorts")
+    elif category == "tops":
+        return redirect(f"/make_outfit_tops")
+    elif category == "shoes":
+        return redirect(f"/make_outfit_shoes")
+    else:
+        return redirect(f"/make_outfit_accessories")
+################################################################################
+################################################################################
+
+
+
+################################################################################
+##Routes for displaying each category to make an outfit##
+@app.route("/make_outfit_skirts", methods = ["POST", "GET"])
+def make_outfit_skirts():
+    user_id = session["user_id"]
+    user = User.query.filter_by(user_id=user_id).first()
+    user_clothing = Clothing.query.filter_by(user_id = user_id).all()
+    return render_template('make_outfit_skirts.html', user=user, user_clothing = user_clothing)
+
+@app.route("/make_outfit_jeans", methods = ["POST", "GET"])
+def make_outfit_jeans():
+    user_id = session["user_id"]
+    user = User.query.filter_by(user_id=user_id).first()
+    user_clothing = Clothing.query.filter_by(user_id = user_id).all()
+    return render_template('make_outfit_jeans.html', user=user, user_clothing = user_clothing)
+
+@app.route("/make_outfit_dresses", methods = ["POST", "GET"])
+def make_outfit_dresses():
+    user_id = session["user_id"]
+    user = User.query.filter_by(user_id=user_id).first()
+    user_clothing = Clothing.query.filter_by(user_id = user_id).all()
+    return render_template('make_outfit_dresses.html', user=user, user_clothing = user_clothing)
+
+@app.route("/make_outfit_outerwear", methods = ["POST", "GET"])
+def make_outfit_outerwear():
+    user_id = session["user_id"]
+    user = User.query.filter_by(user_id=user_id).first()
+    user_clothing = Clothing.query.filter_by(user_id = user_id).all()
+    return render_template('make_outfit_outerwear.html', user=user, user_clothing = user_clothing)
+
+@app.route("/make_outfit_shorts", methods = ["POST", "GET"])
+def make_outfit_shorts():
+    user_id = session["user_id"]
+    user = User.query.filter_by(user_id=user_id).first()
+    user_clothing = Clothing.query.filter_by(user_id = user_id).all()
+    return render_template('make_outfit_shorts.html', user=user, user_clothing = user_clothing)
+
+@app.route("/make_outfit_tops", methods = ["POST", "GET"])
+def make_outfit_tops():
+    user_id = session["user_id"]
+    user = User.query.filter_by(user_id=user_id).first()
+    user_clothing = Clothing.query.filter_by(user_id = user_id).all()
+    return render_template('make_outfit_tops.html', user=user, user_clothing = user_clothing)
+
+@app.route("/make_outfit_shoes", methods = ["POST", "GET"])
+def make_outfit_shoes():
+    user_id = session["user_id"]
+    user = User.query.filter_by(user_id=user_id).first()
+    user_clothing = Clothing.query.filter_by(user_id = user_id).all()
+    return render_template('make_outfit_shoes.html', user=user, user_clothing = user_clothing)
+
+@app.route("/make_outfit_accessories", methods = ["POST", "GET"])
+def make_outfit_accessories():
+    user_id = session["user_id"]
+    user = User.query.filter_by(user_id=user_id).first()
+    user_clothing = Clothing.query.filter_by(user_id = user_id).all()
+    return render_template('make_outfit_accessories.html', user=user, user_clothing = user_clothing)
+################################################################################
+################################################################################
+
+
+
+
+
 
 
 

@@ -1,0 +1,35 @@
+{% block head %}
+
+<title>My Closet</title>
+
+{% endblock %}
+
+{% block body %}
+
+<p>
+{{ user.username }}'s Closet
+</p>
+
+
+
+<p>
+{% for clothes in user_clothing %}
+    {% if clothes.category == "skirts" %}
+     <img src="{{ clothes.photo }}" style = "width:200px;height:300px;">
+     <p>
+     Category: {{clothes.category}}
+     <p>
+     Season: {{clothes.season}}
+     <p>
+     Color: {{clothes.color}}
+     <p>
+     Size: {{clothes.size}}
+     <p>
+     Description: {{clothes.description}}
+    </p>
+    {% endif %}
+{% endfor %}
+</p>
+<a href="/closet/{{ user.user_id }}">Return to your closet</a>
+
+{% endblock %}

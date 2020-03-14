@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title> Make an Outfit </title>
+
+<p>
+{{ user.username }}'s Closet
+</p>
+<p>
+    <form action="/make_outfit_category" method = "POST">
+        <label for="make_outfit_category">Choose the category you want to see:</label>
+            <select id="make_outfit_category" name ="make_outfit_category">
+                <option value="skirts">Skirts</option>
+                <option value="jeans">Jeans</option>
+                <option value="dresses">Dresses</option>
+                <option value="outerwear">Outerwear</option>
+                <option value="shorts">Shorts</option>
+                <option value="tops">Tops</option>
+                <option value="shoes">Shoes</option>
+                <option value="accessories">Accessories</option>
+            </select>
+        <input type="submit">
+    </form>
+</p>
+
+
+
+{% endblock %}
+
+{% block body %}
+
+{% endblock %}
