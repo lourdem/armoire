@@ -70,18 +70,6 @@ class Clothing(db.Model):
         return f"<Clothing clothing_id={self.clothing_id} category ={self.category} season={self.season} color = {self.color}>"
 
 
-# class UserPicture(db.Model, Image):
-#     """User picture model."""
-
-#     __tablename__ = "user_picture"
-
-#     picture_id = Column(Integer, ForeignKey('clothing.clothing_id'), primary_key=True)
-#     user = relationship('clothing')
-
-#     clothingPictures = db.relationship("Clothing",
-#                            backref=db.backref("clothingPictures", order_by=picture_id))
-
-
 
 
 #IS A TABLE WITH OUTFIT NUMBERS AND NO ITEMS COLUMN
@@ -91,10 +79,14 @@ class Outfit(db.Model):
     __tablename__ = "outfits"
 
     outfit_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    day_of_week = db.Column(db.String(10), nullable =True)
+    # day_of_week = db.Column(db.String(10), nullable =True)
+
+    ##relationship to clothes##
+    clothes = db.relationship('Clothing', 
+        secondary = 'clothesInOutfit', backref = db.backref('outfit'))
 
     def __repr__(self):
-        return f"<Outfit outfit_id={self.outfit_id} day_of_week={self.day_of_week}>"
+        return f"<Outfit outfit_id={self.outfit_id}>"
 
 
 class Friend(db.Model):

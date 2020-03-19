@@ -1,0 +1,42 @@
+{% block head %}
+
+<title>My Closet</title>
+
+{% endblock %}
+
+{% block body %}
+
+<p>
+{{ user.username }}'s Closet
+</p>
+
+
+
+<p>
+<form action = "/choose_item_for_outfit" method = "POST">
+
+{% for clothes in user_clothing %}
+
+    {% if clothes.category == "accessories" %}
+    Choose this item <input type = "radio" id = "{{clothes.clothing_id}}" name = "selected_clothing" value = {{clothes.clothing_id}}>
+     <img src="{{ clothes.photo }}" style = "width:200px;height:300px;">
+     <p>
+     Category: {{clothes.category}}
+     <p>
+     Season: {{clothes.season}}
+     <p>
+     Color: {{clothes.color}}
+     <p>
+     Size: {{clothes.size}}
+     <p>
+     Description: {{clothes.description}}
+    </p>
+    {% endif %}
+{% endfor %}
+<input type="submit" value="Make Selection"/>
+</form>
+</p>
+
+<a href="/closet/{{ user.user_id }}">Return to your closet</a>
+
+{% endblock %}

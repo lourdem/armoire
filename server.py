@@ -274,7 +274,10 @@ def make_outfit():
     user_id = session["user_id"]
     user = User.query.filter_by(user_id=user_id).first()
     user_clothing = Clothing.query.filter_by(user_id = user_id).all()
-    return render_template("make_an_outfit.html", user = user)
+    # selected_clothing_to_display = selected_clothing
+    # diplay_selected = Clothing.query.filter_by
+    list_of_selected_clothing = []
+    return render_template("make_an_outfit.html", user = user, list_of_selected_clothing = list_of_selected_clothing)
 ################################################################################
 ################################################################################
 
@@ -307,6 +310,26 @@ def show_category_for_outfits():
         return redirect(f"/make_outfit_accessories")
 ################################################################################
 ################################################################################
+
+
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+
+# @app.route('/categories', methods = ['POST'])
+#     category = 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -369,6 +392,43 @@ def make_outfit_accessories():
     return render_template('make_outfit_accessories.html', user=user, user_clothing = user_clothing)
 ################################################################################
 ################################################################################
+
+
+################################################################################
+##Route for after a selection is made##
+@app.route("/choose_item_for_outfit", methods = ["POST"])
+def choose_item_for_outfit():
+    user_id = session["user_id"]
+    user = User.query.filter_by(user_id=user_id).first()
+    selected_radio_button = request.form["selected_clothing"]
+
+    selected_clothing = Clothing.query.filter_by(clothing_id = selected_radio_button).first()
+
+    list_of_selected_clothing = []
+    if selected_clothing not in list_of_selected_clothing:
+        list_of_selected_clothing.append(selected_clothing)
+ 
+
+    # for item in list_of_selected_clothing:
+    #     selected_id = item
+    #     return selected_id
+
+    # user_clothing = Clothing.query.filter_by(selected_id = clothing_id).all()
+
+
+
+    return render_template("make_an_outfit.html", user = user, list_of_selected_clothing = list_of_selected_clothing, selected_clothing = selected_clothing)#, selected_id = selected_id, list_of_selected_clothing = list_of_selected_clothing)
+
+
+################################################################################
+################################################################################
+
+
+
+
+
+
+
 
 
 

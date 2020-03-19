@@ -24,6 +24,28 @@
     </form>
 </p>
 
+<p>
+So far you have selected:
+</p>
+
+
+{% if list_of_selected_clothing | length < 1 %}
+NONE
+
+{% endif %}
+
+{% if list_of_selected_clothing | length > 0 %}
+    {% for item in list_of_selected_clothing %}
+        <img src="{{ item.photo }}" style = "width:200px;height:300px;">
+    {% endfor %}
+{% endif %}
+
+
+
+
+
+
+
 
 
 {% endblock %}
