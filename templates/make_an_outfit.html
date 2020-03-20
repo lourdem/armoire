@@ -4,6 +4,10 @@
 
 <title> Make an Outfit </title>
 
+{% endblock %}
+
+{% block body %}
+
 <p>
 {{ user.username }}'s Closet
 </p>
@@ -20,7 +24,7 @@
                 <option value="shoes">Shoes</option>
                 <option value="accessories">Accessories</option>
             </select>
-        <input type="submit">
+        <input type="submit" value = "View">
     </form>
 </p>
 
@@ -36,20 +40,10 @@ NONE
 
 {% if list_of_selected_clothing | length > 0 %}
     {% for item in list_of_selected_clothing %}
+    <p>
         <img src="{{ item.photo }}" style = "width:200px;height:300px;">
+    </p>
     {% endfor %}
 {% endif %}
-
-
-
-
-
-
-
-
-
-{% endblock %}
-
-{% block body %}
 
 {% endblock %}
