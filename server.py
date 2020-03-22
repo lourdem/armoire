@@ -3,7 +3,7 @@
 from jinja2 import StrictUndefined
 from flask import Flask, render_template, request, flash, redirect, session, url_for, Markup
 from flask_debugtoolbar import DebugToolbarExtension
-from model import connect_to_db, db, User, Outfit, Clothing, Friend, Event, clothesInOutfit
+from model import (connect_to_db, db, User, Outfit, Clothing, Friend, Event, ClothesInOutfit)
 from werkzeug.utils import secure_filename
 import psycopg2
 import os
@@ -217,39 +217,50 @@ def choose_item_for_outfit():
     list_of_selected_clothing = []
     selected_radio_button = request.form["selected_clothing"]
     
-    if not session.get('outfit'):
+    if not session.get("outfit"):
         session["outfit"] = []
-
+    
     session["outfit"].append(selected_radio_button)
-    #print("\n\n\n", session["outfit"])
 
     for number in session.get("outfit"):
-        # print("\n\n\n", number)
         list_of_selected_clothing.append(Clothing.query.get(number))
-        # print("\n\n\n", list_of_selected_clothing)
     session.modified = True
 
+    return render_template("make_an_outfit.html", user = user, list_of_selected_clothing = list_of_selected_clothing)
+    #, selected_clothing = selected_clothing)#, selected_id = selected_id, list_of_selected_clothing = list_of_selected_clothing)
+################################################################################
+################################################################################
 
 
-####used to test####
-    # # print("\n\n\n",selected_radio_button)
-    # print("\n\n\n",list_of_selected_clothing)
+
+################################################################################
+#########################Saving outfit to databse###############################
+@app.route("/submit_outfit_to_database", methods = ["POST"])
+def submit_outfit_to_databse():
+    user_id = session["user_id"]
 
 
-    # new_outfit = Outfit(clothes = selected_radio_button)
-    # db.session.add(new_outfit)
+    clothing_list = session["outfit"]
+
+    new_outfit = Outfit(user_id = user_id)
+    db.session.add(new_outfit)
     # db.session.commit()
+   
+    for clothing_id in clothing_list:
+        clothing = Clothing.query.filter_by(clothing_id = clothing_id).one()
+        new_outfit.add_clothing_id(clothing)
 
 
-    return render_template("make_an_outfit.html", user = user, list_of_selected_clothing = list_of_selected_clothing)#, selected_clothing = selected_clothing)#, selected_id = selected_id, list_of_selected_clothing = list_of_selected_clothing)
+    db.session.commit()
+
+
+
+
+
+
+    return redirect(f"make_an_outfit")
 ################################################################################
 ################################################################################
-
-
-
-
-
-
 
 
 

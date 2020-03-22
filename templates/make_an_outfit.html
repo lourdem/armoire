@@ -32,7 +32,7 @@
 So far you have selected:
 </p>
 
-
+<form action = "/submit_outfit_to_database" method = "POST">
 {% if list_of_selected_clothing | length < 1 %}
 NONE
 
@@ -45,5 +45,12 @@ NONE
     </p>
     {% endfor %}
 {% endif %}
+<p>
+<input type = "submit" value = "Save Outfit">
+</p>
+</form>
+
+
+
 
 {% endblock %}

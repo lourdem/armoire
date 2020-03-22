@@ -69,21 +69,23 @@ class Clothing(db.Model):
     def __repr__(self):
         return f"<Clothing clothing_id={self.clothing_id} category ={self.category} season={self.season} color = {self.color}>"
 
-
-
-
-#IS A TABLE WITH OUTFIT NUMBERS AND NO ITEMS COLUMN
+#A TABLE WITH OUTFIT NUMBERS AND NO ITEMS COLUMN
 class Outfit(db.Model):
     """User's outfits."""
 
     __tablename__ = "outfits"
 
     outfit_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable = False)
     # day_of_week = db.Column(db.String(10), nullable =True)
 
     ##relationship to clothes##
-    clothes = db.relationship('Clothing', 
-        secondary = 'clothesInOutfit', backref = db.backref('outfit'))
+    clothing = db.relationship('Clothing', backref = db.backref('outfit'), 
+        secondary = 'clothes_in_outfit')
+
+    def add_clothing_id(self, item_to_add):
+        self.clothing.append(item_to_add)
+        db.session.commit()
 
     def __repr__(self):
         return f"<Outfit outfit_id={self.outfit_id}>"
@@ -124,8 +126,31 @@ class Event(db.Model):
 #corresponding clothing_id, so that you can add multiple clothing items to an outfit
 #but there is no minimum or maximum this way
 
-clothesInOutfit = db.Table('clothesInOutfit', db.Column('outfit_id', db.Integer, db.ForeignKey('outfits.outfit_id')),
-                db.Column('clothing_id', db.Integer, db.ForeignKey('clothing.clothing_id')))
+
+class ClothesInOutfit(db.Model):
+    __tablename__ = "clothes_in_outfit"
+
+    clothes_in_outfit_id = db.Column(db.Integer, autoincrement = True, primary_key = True)
+
+    clothing_id = db.Column(db.Integer, db.ForeignKey("clothing.clothing_id"), nullable = False)
+    outfit_id = db.Column(db.Integer, db.ForeignKey("outfits.outfit_id"), nullable = False)
+
+
+    def __repr__(self):
+        return f"<ClothesInOutfit clothes_in_outfit_id = {self.clothes_in_outfit_id} clothing_id = {self.clothing_id} outfit_id = {self.outfit_id}"
+
+
+
+
+
+
+################################################################################
+################################################################################
+#Was using this before to associate outfits and clothing
+
+
+# clothes_in_outfit = db.Table('clothesInOutfit', db.Column('outfit_id', db.Integer, db.ForeignKey('outfits.outfit_id')),
+                # db.Column('clothing_id', db.Integer, db.ForeignKey('clothing.clothing_id')))
 
 #HOW TO PRINT CONTENTS OF THE TABLE ABOVE
     # def __repr__(self):
@@ -136,6 +161,13 @@ clothesInOutfit = db.Table('clothesInOutfit', db.Column('outfit_id', db.Integer,
 #TABLE IF AN OUTFITS TABLE IS MADE
 # clothesInOutfit = db.Table('clothesInOutfit', db.Column('outfit_id', db.Integer, db.ForeignKey('outfit_id')),
 #                 db.Column('clothing_id', db.Integer, db.ForeignKey('clothing_id')))
+
+################################################################################
+################################################################################
+
+
+
+
 
 
 # Helper functions
