@@ -48,6 +48,13 @@ class User(db.Model):
     # age = db.Column(db.Integer, nullable=True)
     # zipcode = db.Column(db.String(15), nullable=True)
 
+
+    user_clothes = db.relationship('Clothing', backref = db.backref('user'))
+    user_outfits = db.relationship('Outfit', backref = db.backref('user'))
+
+
+
+
     def __repr__(self):
         return f"<User user_id={self.user_id} email = {self.email} username = {self.username} password={self.password}>"
 
@@ -80,11 +87,11 @@ class Outfit(db.Model):
     # day_of_week = db.Column(db.String(10), nullable =True)
 
     ##relationship to clothes##
-    clothing = db.relationship('Clothing', backref = db.backref('outfit'), 
+    clothes = db.relationship('Clothing', backref = db.backref('outfit'), 
         secondary = 'clothes_in_outfit')
 
     def add_clothing_id(self, item_to_add):
-        self.clothing.append(item_to_add)
+        self.clothes.append(item_to_add)
         db.session.commit()
 
     def __repr__(self):

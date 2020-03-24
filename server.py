@@ -232,36 +232,47 @@ def choose_item_for_outfit():
 ################################################################################
 
 
-
 ################################################################################
 #########################Saving outfit to databse###############################
 @app.route("/submit_outfit_to_database", methods = ["POST"])
 def submit_outfit_to_databse():
     user_id = session["user_id"]
-
-
     clothing_list = session["outfit"]
 
     new_outfit = Outfit(user_id = user_id)
     db.session.add(new_outfit)
-    # db.session.commit()
    
     for clothing_id in clothing_list:
-        clothing = Clothing.query.filter_by(clothing_id = clothing_id).one()
-        new_outfit.add_clothing_id(clothing)
-
+        clothing_item = Clothing.query.filter_by(clothing_id = clothing_id).one()
+        new_outfit.add_clothing_id(clothing_item)
 
     db.session.commit()
-
-
-
-
-
 
     return redirect(f"make_an_outfit")
 ################################################################################
 ################################################################################
 
+
+@app.route("/view_outfits")
+def view_outfits():
+    user_id = session["user_id"]
+    user = User.query.filter_by(user_id=user_id).first()
+
+    outfits = Outfit.query.filter_by(user_id = user_id).all()
+
+    dict_of_clothes = {}
+    for outfit in outfits:
+        clothes = outfit.clothes
+        dict_of_clothes[outfit] = clothes
+
+
+        # outfit_items = ClothesInOutfit.query.filter_by(outfit_id = outfit_id).all()
+        # dict_of_clothes[outfit_id] = outfit_items
+
+    print("\n\n\n", dict_of_clothes, "\n\n\n")
+
+
+    return render_template("view_outfits.html", user = user, clothes = clothes, dict_of_clothes = dict_of_clothes, outfit = outfit)
 
 
 
