@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>My Closet</title>
+
+{% endblock %}
+
+{% block body %}
+
+<p>
+{{ user.username }}'s Closet
+</p>
+
+
+<p>
+{% for key, value in dict_of_clothes.items() %}
+    <h1>Outfit: {{key.outfit_id}}</h1>
+    {% for val in value %}
+        <h2><img src="{{ val.photo }}" style = "width:200px;height:300px;"></h2>
+    {% endfor %}
+{% endfor %}
+
+</p>
+
+{% endblock %}
+
+
