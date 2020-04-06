@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block head %}
+
+<title> Armoire </title>
+
+{% endblock %}
+
+
+{% block body %}
+<div class ="displays">
+  <h1><span>
+  Found Users:</span>
+  </h1>
+  <h2><span>(Click on a user to view their closet)</span></h2>
+
+  <p>
+    {% for user in found_users %}
+      <p><span>
+        <a href="/">{{ user.username }}</a>
+      </span></p>
+    {% endfor %}
+</p>
+<p id = "returnfromdisplay">
+    <a href="/closet/{{ user.user_id }}">Return to your closet</a>
+</p>
+
+</div>
+{% endblock %}

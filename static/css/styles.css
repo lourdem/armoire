@@ -1,0 +1,862 @@
+html {
+  background: url(https://cdn.shopify.com/s/files/1/1312/8955/products/12-Greenport_White_2_door_armoire_open_1_shelf_1024x1024.jpg?v=1560282799) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/*this is for the homepage*/
+.homepage {
+  position: relative;
+  background: url(https://www.mylibertyfurniture.com/globalassets/product-images/large/824-br-arm.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.homepage h1 {
+  position: absolute;
+  color: black;
+  top: -20px;
+  font-size: 50px;
+  right: 200px;
+}
+.homepage h2 {
+  position: absolute;
+  color: white;
+  text-align: center;
+  top: 60px;
+  font-size: 30px;
+  right: 200px;
+}
+.homepage h2 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px; 
+}
+#first {
+  position: absolute;
+  color: black;
+  top: 410px;
+  font-size: 20px;
+  right: 200px;
+}
+#first span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px; 
+}
+#username {
+  position: absolute;
+  color: black;
+  top: 455px;
+  font-size: 20px;
+  right: 300px;
+}
+#password {
+  position: absolute;
+  color: black;
+  top: 496px;
+  font-size: 20px;
+  right: 300px;
+}
+#submit {
+  position: absolute;
+  color: black;
+  top: 480px;
+  font-size: 20px;
+  right: 230px;
+}
+#second {
+  position: absolute;
+  color: black;
+  top: 555px;
+  font-size: 20px;
+  right: 200px;
+}
+#second span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px; 
+}
+#register {
+  position: absolute;
+  color: black;
+  top: 590px;
+  font-size: 20px;
+  right: 230px;
+}
+/*this is the end of the homepage*/
+
+
+/*body {
+  background-color: #FAEBD7;
+}*/
+
+/*for the user's main page*/
+.user h1 {
+   color: black;
+  text-align: center;
+  font-size: 50px;
+}
+.user h1 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px; 
+}
+.user p span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px; 
+}
+#gotocloset {
+  position: absolute;
+  color: black;
+  top: 360px;
+  font-size: 30px;
+  text-align: center;
+  left: 33%; 
+}
+#searchuser {
+  position: absolute;
+  color: black;
+  top: 540px;
+  font-size: 25px;
+  text-align: center;
+  left: 42%;   
+}
+#searchbox {
+  position: absolute;
+  color: black;
+  top: 580px;
+  font-size: 25px;
+  text-align: center;
+  left: 37%;   
+}
+#logout {
+  position: absolute;
+  color: black;
+  top: 660px;
+  font-size: 20px;
+  text-align: center;
+  left: 46%;   
+}
+/*end for user's main page*/
+
+
+/*for individual user's closet*/
+.closet h1 {
+  color: black;
+  text-align: center;
+  font-size: 40px;
+}
+.closet h1 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px; 
+}
+#selcat {
+  position: absolute;
+  color: black;
+  top: 350px;
+  font-size: 25px;
+  text-align: center;
+  left: 14.5%;   
+}
+#homepage {
+  position: absolute;
+  color: black;
+  top: 510px;
+  font-size: 20px;
+  text-align: center;
+  left: 40%;   
+}
+#submitnew {
+  position: absolute;
+  color: black;
+  top: 535px;
+  font-size: 20px;
+  text-align: center;
+  left: 41%;   
+}
+#makeout {
+  position: absolute;
+  color: black;
+  top: 560px;
+  font-size: 20px;
+  text-align: center;
+  left: 43%;   
+}
+#viewout {
+  position: absolute;
+  color: black;
+  top: 585px;
+  font-size: 20px;
+  text-align: center;
+  left: 42.3%;   
+}
+/*end individual user's closet*/
+
+
+/*for item submission*/
+.submititem h1 {
+  color: black;
+  text-align: center;
+  font-size: 50px;
+}
+.submititem h1 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px; 
+}
+.submititem h3 {
+  color: black;
+  text-align: center;
+  font-size: 25px;
+}
+.submititem p {
+  color: black;
+  text-align: center;
+  font-size: 20px;
+}
+.submititem h3 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px; 
+ }
+.submititem p span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px; 
+ }
+ /*end item submission*/
+
+
+/*make an outfit*/
+.makeoutfit h1 {
+  color: black;
+  text-align: center;
+  font-size: 50px;
+}
+.makeoutfit h1 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px; 
+}
+.makeoutfit p {
+  color: black;
+  text-align: center;
+  font-size: 25px;
+}
+.makeoutfit p span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px; 
+ }
+/*end make outfits*/
+
+
+
+/*to view outfits*/
+.viewoutfits h1 {
+  color: black;
+  text-align: center;
+  font-size: 50px;
+}
+.viewoutfits h1 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px; 
+}
+.viewoutfits p {
+  position: absolute;
+  font-size: 20px;
+  left: 40%; 
+}
+/*end view outfits*/
+
+
+
+/*display searches*/
+.displays h1 {
+  color: black;
+  text-align: center;
+  font-size: 50px;
+}
+.displays h1 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+ }
+ .displays h2 {
+  color: black;
+  text-align: center;
+  font-size: 30px;
+}
+.displays h2 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+ }
+ .displays p {
+  color: black;
+  text-align: center;
+  font-size: 20px;
+ }
+ .displays p span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: white; /* fallback color */
+   background: white;
+   padding: 10px;
+ }
+ #returnfromdisplay {
+  position: absolute;
+  bottom: 0px;
+  left: 39%;
+ }
+/*end for display searches*/
+
+
+
+/*categories to view clothes*/
+.outshoes h1 {
+  color: black;
+  text-align: center;
+  font-size: 50px;
+ }
+ .outshorts h1 {
+  color: black;
+  text-align: center;
+  font-size: 50px;
+ }
+ .outskirts h1 {
+  color: black;
+  text-align: center;
+  font-size: 50px;
+ }
+ .outtops h1 {
+  color: black;
+  text-align: center;
+  font-size: 50px;
+ }
+ .outouterwear h1 {
+  color: black;
+  text-align: center;
+  font-size: 50px;
+ }
+ .outjeans h1 {
+  color: black;
+  text-align: center;
+  font-size: 50px;
+ }
+ .outdresses h1 {
+  color: black;
+  text-align: center;
+  font-size: 50px;
+ }
+ .outaccessories h1 {
+  color: black;
+  text-align: center;
+  font-size: 50px;
+ }
+.outshorts h1 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+   text-align: center;
+   font-size: 50px;
+ }
+ .outaccessories h1 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+   text-align: center;
+   font-size: 50px;
+ }
+ .outdresses h1 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+   text-align: center;
+   font-size: 50px;
+ }
+.outskirts h1 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+ }
+.outjeans h1 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+   text-align: center;
+   font-size: 50px;
+ }
+.outouterwear h1 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+   text-align: center;
+   font-size: 50px;
+ }
+.outshoes h1 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+   text-align: center;
+   font-size: 50px;
+ }
+.outtops h1 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+   text-align: center;
+   font-size: 50px;
+ }
+
+ .outtops p {
+  color: black;
+  font-size: 20px;
+ }
+.outtops p span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+}
+ .outshoes p {
+  color: black;
+  font-size: 20px;
+ }
+.outshoes p span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+}
+ .outouterwear p {
+  color: black;
+  font-size: 20px;
+ }
+.outouterwear span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+}
+ .outjeans p {
+  color: black;
+  font-size: 20px;
+ }
+.outjeans p span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+}
+ .outskirts p {
+  color: black;
+  font-size: 20px;
+ }
+.outskirts p span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+}
+ .outdresses p {
+  color: black;
+  font-size: 20px;
+ }
+.outdresses p span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+}
+ .outaccessories p {
+  color: black;
+  font-size: 20px;
+ }
+.outaccessories p span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+}
+ .outshorts p {
+  color: black;
+  font-size: 20px;
+ }
+.outshorts p span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+}
+/*end categories to view clothes*/
+
+
+/*categories to make outfits*/
+.makeoutshoes h1 {
+  color: black;
+  text-align: center;
+  font-size: 50px;
+ }
+ .makeoutshorts h1 {
+  color: black;
+  text-align: center;
+  font-size: 50px;
+ }
+ .makeoutskirts h1 {
+  color: black;
+  text-align: center;
+  font-size: 50px;
+ }
+ .makeouttops h1 {
+  color: black;
+  text-align: center;
+  font-size: 50px;
+ }
+ .makeoutouterwear h1 {
+  color: black;
+  text-align: center;
+  font-size: 50px;
+ }
+ .makeoutjeans h1 {
+  color: black;
+  text-align: center;
+  font-size: 50px;
+ }
+ .makeoutdresses h1 {
+  color: black;
+  text-align: center;
+  font-size: 50px;
+ }
+ .makeoutaccessories h1 {
+  color: black;
+  text-align: center;
+  font-size: 50px;
+ }
+.makeoutshorts h1 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+   text-align: center;
+   font-size: 50px;
+ }
+ .makeoutaccessories h1 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+   text-align: center;
+   font-size: 50px;
+ }
+ .makeoutdresses h1 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+   text-align: center;
+   font-size: 50px;
+ }
+.makeoutskirts h1 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+ }
+.makeoutjeans h1 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+   text-align: center;
+   font-size: 50px;
+ }
+.makeoutouterwear h1 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+   text-align: center;
+   font-size: 50px;
+ }
+.makeoutshoes h1 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+   text-align: center;
+   font-size: 50px;
+ }
+.makeouttops h1 span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+   text-align: center;
+   font-size: 50px;
+ }
+
+ .makeouttops p {
+  color: black;
+  font-size: 20px;
+ }
+.makeouttops p span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+}
+ .makeoutshoes p {
+  color: black;
+  font-size: 20px;
+ }
+.makeoutshoes p span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+}
+ .makeoutouterwear p {
+  color: black;
+  font-size: 20px;
+ }
+.makeoutouterwear span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+}
+ .makeoutjeans p {
+  color: black;
+  font-size: 20px;
+ }
+.makeoutjeans p span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+}
+ .makeoutskirts p {
+  color: black;
+  font-size: 20px;
+ }
+.makeoutskirts p span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+}
+ .makeoutdresses p {
+  color: black;
+  font-size: 20px;
+ }
+.makeoutdresses p span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+}
+ .makeoutaccessories p {
+  color: black;
+  font-size: 20px;
+ }
+.makeoutaccessories p span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+}
+ .makeoutshorts p {
+  color: black;
+  font-size: 20px;
+ }
+.makeoutshorts p span { 
+   color: white; 
+   font: bold ; 
+   letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+}
+ .makeoutskirts h3 {
+  color: black;
+  font-size: 20px;
+  text-align: center;
+ }
+  .makeoutshorts h3 {
+  color: black;
+  font-size: 20px;
+  text-align: center;
+ }
+  .makeoutaccessories h3 {
+  color: black;
+  font-size: 20px;
+  text-align: center;
+ }
+  .makeoutshoes h3 {
+  color: black;
+  font-size: 20px;
+  text-align: center;
+ }
+  .makeouttops h3 {
+  color: black;
+  font-size: 20px;
+  text-align: center;
+ }
+  .makeoutjeans h3 {
+  color: black;
+  font-size: 20px;
+  text-align: center;
+ }
+  .makeoutdresses h3 {
+  color: black;
+  font-size: 20px;
+  text-align: center;
+ }
+  .makeoutouterwear h3 {
+  color: black;
+  font-size: 20px;
+  text-align: center;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

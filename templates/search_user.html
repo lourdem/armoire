@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block head %}
+
+<title> Armoire </title>
+
+{% endblock %}
+
+
+{% block body %}
+<div class="well spaced" style="width:60%">
+  <h2>Found Users:</h2>
+
+  <ul>
+    {% for user in found_users %}
+      <li>
+        <a href="/">{{ user.username }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+</div>
+{% endblock %}
