@@ -7,12 +7,17 @@
 {% endblock %}
 
 {% block body %}
+<div class ="makeoutfit">
 
+<h1><span>
+{{ user.username }}'s Closet</span>
+</h1>
 <p>
-{{ user.username }}'s Closet
+<a id = "return" href="/closet/{{ user.user_id }}">Return to your closet</a>
 </p>
 <p>
     <form action="/make_outfit_category" method = "POST">
+        <p><span>
         <label for="make_outfit_category">Choose the category you want to see:</label>
             <select id="make_outfit_category" name ="make_outfit_category">
                 <option value="skirts">Skirts</option>
@@ -28,31 +33,29 @@
     </form>
 </p>
 
-<p>
-So far you have selected:
+<p><span>
+So far you have selected:</span>
 </p>
 
 <form action = "/submit_outfit_to_database" method = "POST">
+   <p> <span>
 {% if list_of_selected_clothing | length < 1 %}
-NONE
+NOTHING
 
 {% endif %}
+</span></p>
 
 {% if list_of_selected_clothing | length > 0 %}
     {% for item in list_of_selected_clothing %}
-    <p>
+    <span>
         <img src="{{ item.photo }}" style = "width:200px;height:300px;">
-    </p>
+    </span>
     {% endfor %}
 {% endif %}
-<p>
+<p><span>
 <input type = "submit" value = "Save Outfit">
 </p>
 </form>
-
-<a href="/closet/{{ user.user_id }}">Return to your closet</a>
-
-
 
 
 {% endblock %}

@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+
 {% block head %}
 
 <title>My Closet</title>
@@ -5,10 +7,11 @@
 {% endblock %}
 
 {% block body %}
+<div class ="makeoutdresses">
 
-<p>
-{{ user.username }}'s Closet
-</p>
+<h1><span>
+{{ user.username }}'s Closet</span>
+</h1>
 
 
 
@@ -18,8 +21,10 @@
 {% for clothes in user_clothing %}
 
     {% if clothes.category == "dresses" %}
+    <p>
+        <img src="{{ clothes.photo }}" style = "width:200px;height:300px;">
+        <p>
     Choose this item <input type = "radio" id = "{{clothes.clothing_id}}" name = "selected_clothing" value = {{clothes.clothing_id}}>
-     <img src="{{ clothes.photo }}" style = "width:200px;height:300px;">
      <p>
      Category: {{clothes.category}}
      <p>

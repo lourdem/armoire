@@ -4,42 +4,35 @@
 
 {% block head %}
 
+
 <title> Armoire </title>
 
 {% endblock %}
 
 {% block body %}
+<div class ="user">
 
-<div class="well spaced" style="width:97%">
-  <h2>Welcome {{ user.username }}!</h2>
+  <h1><span>Welcome {{ user.username }}!</span></h1>
 
-<p>
-  Go to closet:
-  <a href="http://localhost:5000/closet/{{ user.user_id }}">Closet</a>
-</p>
+  <p id = "gotocloset">
+    Go to my closet:
+    <a href="http://localhost:5000/closet/{{ user.user_id }}">Closet</a>
+  
+  </p>
+  <p id = "searchuser"><span>
+     Find a user: <form action = "/search_user" method = "POST">
+  <p id = "searchbox">
+      <input type="text" placeholder="Username..." name="search" id = "search">
+      <button type="submit">Search</button>
+    </span>
+  </p>
+    </form>
+  </p>
 
-<p>
-  View friends list:
-  <a href="http://localhost:5000/friends/{{ user.user_id }}">Friends</a>
-</p>
 
-<p>
-  View events:
-  <a href="http://localhost:5000/events/{{ user.user_id }}">Events</a>
-</p>
-
-<p>
-  View requests:
-  <a href="http://localhost:5000/requests/{{ user.user_id }}">Requests</a>
-</p>
-
-<p>
-  View recommendations:
-  <a href="http://localhost:5000/recommendations/{{ user.user_id }}">Recommendations</a>
-</p>
-
-<p>    
-  <a href="http://localhost:5000/">Logout</a>
-</p>
+  <p id = "logout">    
+    <a href="http://localhost:5000/">Logout</a>
+  </p>
+</div>
 
 {% endblock %}

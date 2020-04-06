@@ -7,16 +7,18 @@
 {% endblock %}
 
 {% block body %}
+<div class ="submititem">
 
-
-<p>
+<h1><span>
 {{ user.username }}'s Closet
-</p>
-<h3> Add an item:</h3>
+</span>
+</h1>
+<h3> <span>Add an item:</span></h3>
     <form action="/submit_new_item" method = "POST" enctype=multipart/form-data>
+       <p><span>
         <label for="imageUpload">Select image:</label>
         <input type="file" id="new_item" name="new_item" accept="image/*">
-<p>
+<p><span>
         <label for="item_category">Choose your item's category:</label>
             <select id="item_category" name ="item_category">
                 <option value="skirts">Skirts</option>
@@ -29,7 +31,7 @@
                 <option value="accessories">Accessories</option>
             </select>
 </p>
-<p>
+<p><span>
         <label for="item_size">Item's size:</label>
             <select id="item_size" name = "item_size">
                 <option value="x-small">XS</option>
@@ -39,7 +41,7 @@
                 <option value="x-large">XL</option>
             </select>
 <p>
-<p>
+<p><span>
         <label for="item_color">Item's color:</label>
 
             <select id="item_color" name = "item_color">
@@ -56,7 +58,7 @@
                 <option value="green">Green</option>
             </select>
 <p>
-<p>
+<p><span>
         <label for="item_season">Item's season:</label>
             <select id="item_season" name = "item_season">
                 <option value="spring/summer">Spring/Summer</option>
@@ -74,9 +76,8 @@
         <input type="submit">
     </form>
 
-
-<a href="/closet/{{ user.user_id }}">Return to your closet</a>
-
-
+<p>
+<a href="/closet/{{ user.user_id }}">Return to your closet</a></span></p>
+</div>
 
 {% endblock %}

@@ -109,6 +109,12 @@ def user_detail(user_id):
     # username = User.username
     user = User.query.filter_by(user_id=user_id).first()
     return render_template('user.html', user =user)
+
+
+
+@app.route("/view_user_after_search", methods = ["POST", "GET"])
+def view_user():
+    return render_template("closet.html")
 ################################################################################
 ################################################################################
 
@@ -265,15 +271,25 @@ def view_outfits():
         clothes = outfit.clothes
         dict_of_clothes[outfit] = clothes
 
-
-        # outfit_items = ClothesInOutfit.query.filter_by(outfit_id = outfit_id).all()
-        # dict_of_clothes[outfit_id] = outfit_items
-
-    print("\n\n\n", dict_of_clothes, "\n\n\n")
-
+    # print("\n\n\n", dict_of_clothes, "\n\n\n")
 
     return render_template("view_outfits.html", user = user, clothes = clothes, dict_of_clothes = dict_of_clothes, outfit = outfit)
+################################################################################
+################################################################################
 
+
+@app.route("/search_user", methods = ["POST"])
+def search_user():
+    user_id = session["user_id"]
+    user = User.query.filter_by(user_id=user_id).first()
+
+    user_input = request.form["search"]
+    search = "%{}%".format(user_input)
+
+    found_users = User.query.filter(User.username.like(search)).all()
+
+
+    return render_template("display_searches.html", found_users = found_users, user =user)
 
 
 

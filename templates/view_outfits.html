@@ -7,22 +7,26 @@
 {% endblock %}
 
 {% block body %}
+<div class ="viewoutfits">
 
-<p>
-{{ user.username }}'s Closet
-</p>
+<h1><span>
+{{ user.username }}'s Closet</span>
+</h1>
 
 
-<p>
+
 {% for key, value in dict_of_clothes.items() %}
-    <h1>Outfit: {{key.outfit_id}}</h1>
+    <h2>Outfit: {{key.outfit_id}}</h2>
     {% for val in value %}
-        <h2><img src="{{ val.photo }}" style = "width:200px;height:300px;"></h2>
+        <span><img src="{{ val.photo }}" style = "width:200px;height:300px;"></span>
     {% endfor %}
 {% endfor %}
 
-</p>
 
+<p>
+    <a href="/closet/{{ user.user_id }}">Return to your closet</a>
+</p>
+</div>
 {% endblock %}
 
 

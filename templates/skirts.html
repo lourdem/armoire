@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+
 {% block head %}
 
 <title>My Closet</title>
@@ -5,31 +7,36 @@
 {% endblock %}
 
 {% block body %}
+<div class ="outskirts">
 
-<p>
-{{ user.username }}'s Closet
-</p>
+<h1><span>
+{{ user.username }}'s Closet</span>
+</h1>
 
-
-
-<p>
 {% for clothes in user_clothing %}
     {% if clothes.category == "skirts" %}
      <img src="{{ clothes.photo }}" style = "width:200px;height:300px;">
-     <p>
-     Category: {{clothes.category}}
-     <p>
+     <p id = "outskirts2"><span>
+          Category: {{clothes.category}}
+ 
+     <p><span>
      Season: {{clothes.season}}
-     <p>
+
+     <p><span>
      Color: {{clothes.color}}
-     <p>
+ 
+     <p><span>
      Size: {{clothes.size}}
-     <p>
+
+     <p><span>
      Description: {{clothes.description}}
     </p>
+
     {% endif %}
 {% endfor %}
-</p>
+</span></p>
+
 <a href="/closet/{{ user.user_id }}">Return to your closet</a>
 
 {% endblock %}
+

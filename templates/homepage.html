@@ -7,26 +7,27 @@
 {% endblock %}
 
 {% block body %}
-   <h1> Welcome to Armoire! </h1>
-   <h2> The Social Wardrobe </h2>
+<div class ="homepage">
+<img style="-webkit-user-select: none; display: block; margin: auto; padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);" src="https://www.mylibertyfurniture.com/globalassets/product-images/large/824-br-arm.jpg" width="100%" height="auto">
 
 
+    <h1> Welcome to Armoire! </h1>
+    <h2> <span>The Social Wardrobe </span></h2>
 
-
-   <h3> Already have an account? Login to continue! </h3>
+    <h3 id = "first"> <span>Already have an account? Login to continue!</span></h3>
 
    <form action = "/login" method = "POST">
-    <p>
+    <p id = "username">
         <label> Username
             <input type = "username" id = "username_for_login" name = "username_for_login">
         </label>
     </p>
-    <p>
+    <p id = "password">
         <label> Password
             <input type = "password" id = "password_for_login" name = "password_for_login">
         </label>
     </p>
-    <p>
+    <p id = "submit">
         <input type = "submit" value = "Login">
     </p>
     </form>
@@ -40,9 +41,10 @@
 
     </form> -->
 
-    <h3> Or make an account and join the fun! </h3>
+    <h3 id = "second"><span> Or make an account and join the fun! </span></h3>
+    <p id = "register"><span>
     <a href="http://localhost:5000/register">Register</a>
-
+    </span></p>
 
 
 
@@ -53,6 +55,6 @@
         <input type = "submit" value = "Register">
     </p>
     </form> -->
-
+</div>
 
 {% endblock %}

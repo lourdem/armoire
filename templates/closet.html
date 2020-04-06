@@ -7,12 +7,14 @@
 {% endblock %}
 
 {% block body %}
+<div class ="closet">
 
-<p>
+<h1><span>
 {{ user.username }}'s Closet
-</p>
-<p>
+</span></h1>
+
     <form action="/show_this_category" method = "POST">
+        <p id = "selcat">
         <label for="category_to_view">Choose the category you want to see:</label>
             <select id="category_to_view" name ="category_to_view">
                 <option value="skirts">Skirts</option>
@@ -27,18 +29,19 @@
         <input type="submit">
     </form>
 </p>
-<p>
+<p id = "homepage">
     <a href="/users/{{ user.user_id }}">Return to homepage</a>
 </p>
-<p>
+<p id = "submitnew">
     <a href="http://localhost:5000/item_submission">Submit a new item</a>
 </p>
-<p>
+<p id = "makeout">
     <a href="/make_an_outfit">Make an outfit</a>
 </p>
-<p>
+<p id = "viewout">
     <a href="/view_outfits">View my outfits</a>
 </p>
+</div>
 
 {% endblock %}
 
