@@ -7,30 +7,32 @@
 {% endblock %}
 
 {% block body %}
+<div class ="register">
+<img style="-webkit-user-select: none; display: block; margin: auto; padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);" src="https://www.mylibertyfurniture.com/globalassets/product-images/large/824-br-arm.jpg" width="100%" height="auto">
    <h1> Register </h1>
 
    <form action="/register" method="POST">
 
-    <p>
+    <p id = "regemail">
     <label> Email:
         <input type="email" name="register_email">
     </label>
     </p>
 
-    <p>
+    <p id = "regusername">
     <label> Username:
         <input type="username" name="register_username">
     </label>
     </p>
 
-    <p>
+    <p id = "regpassword">
     <label> Password:
       <input type="password" name="register_password">
     </label>
     </p>
-
+<p id = "regsubmit">
     <input type="submit" value="Register">
-
+</p>
 </form>
 
 {% endblock %}
