@@ -13,35 +13,33 @@
 {{ user.username }}'s Closet</span>
 </h1>
 
+<h3><a href="http://localhost:5000/make_an_outfit">Choose another category</a></h3>
 
-
-<p>
 <form action = "/choose_item_for_outfit" method = "POST">
 
 {% for clothes in user_clothing %}
 
     {% if clothes.category == "shoes" %}
-    <p>
         <img src="{{ clothes.photo }}" style = "width:200px;height:300px;">
-        <p>
+        <p><span>
     Choose this item <input type = "radio" id = "{{clothes.clothing_id}}" name = "selected_clothing" value = {{clothes.clothing_id}}>
-     <p>
+     <p><span>
      Category: {{clothes.category}}
-     <p>
+     <p><span>
      Season: {{clothes.season}}
-     <p>
+     <p><span>
      Color: {{clothes.color}}
-     <p>
+     <p><span>
      Size: {{clothes.size}}
-     <p>
+     <p><span>
      Description: {{clothes.description}}
     </p>
     {% endif %}
 {% endfor %}
+</span>
 <input type="submit" value="Make Selection"/>
 </form>
-</p>
+</div>
 
-<a href="http://localhost:5000/make_an_outfit">Choose another category</a>
 
 {% endblock %}

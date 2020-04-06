@@ -110,11 +110,23 @@ def user_detail(user_id):
     user = User.query.filter_by(user_id=user_id).first()
     return render_template('user.html', user =user)
 
+@app.route("/viewoutfits/<int:user_id>")
+def search_user_display_outfits(user_id):
+    # username = User.username
+    user = User.query.filter_by(user_id=user_id).first()
+    outfits = Outfit.query.filter_by(user_id = user_id).all()
+
+    dict_of_clothes = {}
+    for outfit in outfits:
+        clothes = outfit.clothes
+        dict_of_clothes[outfit] = clothes
+    return render_template("view_outfits_of_searched_user.html", user = user, clothes = clothes, dict_of_clothes = dict_of_clothes, outfit = outfit)
 
 
-@app.route("/view_user_after_search", methods = ["POST", "GET"])
-def view_user():
-    return render_template("closet.html")
+# @app.route("/view_user_after_search", methods = ["POST", "GET"])
+# def view_user():
+#     user = User.query.filter_by(user_id=user_id).first()
+#     return render_template("view_user_from_search.html", user = user)
 ################################################################################
 ################################################################################
 

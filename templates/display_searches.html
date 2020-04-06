@@ -16,7 +16,7 @@
   <p>
     {% for user in found_users %}
       <p><span>
-        <a href="/">{{ user.username }}</a>
+        <a href="/viewoutfits/{{user.user_id}}">{{ user.username }}</a>
       </span></p>
     {% endfor %}
 </p>
